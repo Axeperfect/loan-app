@@ -44,7 +44,8 @@ def index():
                 score = max(0, min(1000, score))
             else:
                 # Fallback test formula if model fails to load
-                score = (monthly_salary * 0.0001 + years_employed * 40) - (requested_amount * 0.00001)
+                # Adjusted multiplier for monthly salary to reflect Tugriks scaling
+                score = (monthly_salary * 0.00015 + years_employed * 40) - (requested_amount * 0.00001)
                 score = max(0, min(1000, score))
             
             prediction = round(score, 1)
